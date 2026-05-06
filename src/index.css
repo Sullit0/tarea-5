@@ -1,28 +1,31 @@
-/* index.css — Estilos globales mínimos (reset + tipografía base).
+/* index.css — Estilos globales mínimos (reset + tipografía base + tokens).
    Nota: este archivo es global a propósito (el único permitido).
    Los estilos por componente viven en su propio *.module.css o como
    estilo inline para contrastar el scope (ver Header.jsx). */
 
 :root {
-  --color-bg: #0f172a;
+  --color-bg: #07091a;
   --color-surface: #111c34;
   --color-surface-2: #1b2745;
-  --color-border: #243154;
+  --color-border: rgba(148, 163, 184, 0.12);
   --color-text: #e2e8f0;
   --color-muted: #94a3b8;
   --color-accent: #38bdf8;
+  --color-accent-2: #a78bfa;
   --color-success: #34d399;
   --color-warning: #fbbf24;
   --color-danger: #f87171;
-  --radius: 12px;
-  --shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --radius: 14px;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
 
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+  font-family:
+    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
     Arial, sans-serif;
   color: var(--color-text);
   background-color: var(--color-bg);
   line-height: 1.55;
   font-size: 16px;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,9 +45,31 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.12), transparent 40%),
-    radial-gradient(circle at 100% 0%, rgba(167, 139, 250, 0.10), transparent 45%),
+    radial-gradient(circle at 12% -10%, rgba(56, 189, 248, 0.18), transparent 45%),
+    radial-gradient(circle at 88% -5%, rgba(167, 139, 250, 0.16), transparent 50%),
+    radial-gradient(circle at 50% 110%, rgba(52, 211, 153, 0.10), transparent 55%),
     var(--color-bg);
+}
+
+#root {
+  position: relative;
+  isolation: isolate;
+}
+
+#root::before {
+  /* Patrón sutil de puntos decorativo (radial-gradient repetido). */
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(
+    rgba(148, 163, 184, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at 50% 30%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at 50% 30%, #000 30%, transparent 75%);
 }
 
 h1,
@@ -57,4 +82,9 @@ h3 {
 
 a {
   color: var(--color-accent);
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.35);
+  color: #fff;
 }

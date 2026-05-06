@@ -1,8 +1,8 @@
 /* Footer.module.css — clases con scope local. */
 
 .footer {
-  margin-top: 32px;
-  padding: 18px 28px;
+  margin-top: 40px;
+  padding: 22px 32px;
   border-top: 1px solid var(--color-border);
   display: flex;
   justify-content: space-between;
@@ -10,6 +10,8 @@
   flex-wrap: wrap;
   color: var(--color-muted);
   font-size: 12px;
+  letter-spacing: 0.02em;
+  background: linear-gradient(180deg, rgba(15,23,42,0), rgba(7,9,26,0.7));
 }
 
 .note {

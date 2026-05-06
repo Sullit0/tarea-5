@@ -1,34 +1,48 @@
 /* Dashboard.module.css — clases con scope local (CSS Modules). */
 
 .dashboard {
-  max-width: 1180px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 28px 28px 8px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
 }
 
 .intro {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .heading {
-  font-size: 22px;
+  font-size: 24px;
   color: var(--color-text);
+  letter-spacing: -0.01em;
 }
 
 .description {
   color: var(--color-muted);
   font-size: 14px;
   margin: 0;
-  max-width: 70ch;
+  max-width: 80ch;
+}
+
+.headerSlot {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.bottomSlot {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 4px;
 }

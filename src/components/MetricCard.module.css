@@ -4,21 +4,59 @@
    del Paso 4: prohibido <style> global; cada componente con su .module.css. */
 
 .card {
-  background: var(--color-surface);
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0))
+      padding-box,
+    rgba(17, 28, 52, 0.65);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 18px 20px;
-  box-shadow: var(--shadow);
+  border-radius: 14px;
+  padding: 16px 18px 14px;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  min-height: 132px;
-  transition: transform 120ms ease, border-color 120ms ease;
+  gap: 8px;
+  min-height: 168px;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+  overflow: hidden;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.0), rgba(56, 189, 248, 0.18))
+    border-box;
+  -webkit-mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 180ms ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  border-color: var(--color-accent);
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(56, 189, 248, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.card:hover::after {
+  opacity: 1;
 }
 
 .head {
@@ -30,57 +68,78 @@
 
 .label {
   color: var(--color-muted);
-  font-size: 13px;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  font-weight: 600;
 }
 
 .value {
-  font-size: 30px;
+  font-size: 28px;
   color: var(--color-text);
-  font-weight: 600;
-  line-height: 1.1;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
 }
 
 .deltaUp,
 .deltaDown {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   padding: 3px 8px;
   border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
 }
 
 .deltaUp {
   color: var(--color-success);
   background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.3);
 }
 
 .deltaDown {
   color: var(--color-danger);
   background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.spark {
+  margin: 2px -4px 0;
+  opacity: 0.95;
 }
 
 .footer {
   margin-top: auto;
   color: var(--color-muted);
-  font-size: 12px;
+  font-size: 11px;
+  letter-spacing: 0.02em;
   border-top: 1px dashed var(--color-border);
   padding-top: 8px;
 }
 
-/* Variantes por tono — el componente las concatena con `styles[`tone_${tone}`]` */
+/* Variantes por tono — borde lateral acentuado. */
 .tone_success {
-  border-left: 3px solid var(--color-success);
+  box-shadow:
+    inset 3px 0 0 var(--color-success),
+    0 8px 24px rgba(0, 0, 0, 0.32);
 }
 
 .tone_accent {
-  border-left: 3px solid var(--color-accent);
+  box-shadow:
+    inset 3px 0 0 var(--color-accent),
+    0 8px 24px rgba(0, 0, 0, 0.32);
 }
 
 .tone_warning {
-  border-left: 3px solid var(--color-warning);
+  box-shadow:
+    inset 3px 0 0 var(--color-warning),
+    0 8px 24px rgba(0, 0, 0, 0.32);
 }
 
 .tone_danger {
-  border-left: 3px solid var(--color-danger);
+  box-shadow:
+    inset 3px 0 0 var(--color-danger),
+    0 8px 24px rgba(0, 0, 0, 0.32);
 }

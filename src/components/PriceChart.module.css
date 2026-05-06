@@ -1,0 +1,126 @@
+/* PriceChart.module.css — scope local. Glassmorphism + acentos animados. */
+
+.panel {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(56, 189, 248, 0.05), rgba(15, 23, 42, 0)) ,
+    rgba(17, 28, 52, 0.65);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 22px 24px 12px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.panel::before {
+  /* halo decorativo en la esquina superior derecha */
+  content: '';
+  position: absolute;
+  inset: -40% -10% auto auto;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.18), transparent 60%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.head {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.symbol {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.range {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.up,
+.down {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+}
+
+.up {
+  color: var(--color-success);
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+
+.down {
+  color: var(--color-danger);
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+}
+
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--live-color, var(--color-success));
+  padding: 4px 10px 4px 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid color-mix(in srgb, var(--live-color, #34d399) 35%, transparent);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--live-color, var(--color-success));
+  box-shadow: 0 0 10px var(--live-color, var(--color-success));
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.7); }
+}
+
+.svg {
+  width: 100%;
+  height: 280px;
+  display: block;
+}
