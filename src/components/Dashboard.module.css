@@ -1,0 +1,34 @@
+/* Dashboard.module.css — clases con scope local (CSS Modules). */
+
+.dashboard {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 28px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.heading {
+  font-size: 22px;
+  color: var(--color-text);
+}
+
+.description {
+  color: var(--color-muted);
+  font-size: 14px;
+  margin: 0;
+  max-width: 70ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}

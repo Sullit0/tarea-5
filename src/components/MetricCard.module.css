@@ -1,0 +1,86 @@
+/* MetricCard.module.css — Scope local: las clases se compilan con un hash
+   (p. ej. .card → ._card_1a2b3) por lo que NO colisionan con clases de
+   otros módulos ni con CSS global. Demuestra una de las restricciones
+   del Paso 4: prohibido <style> global; cada componente con su .module.css. */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 132px;
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.label {
+  color: var(--color-muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.value {
+  font-size: 30px;
+  color: var(--color-text);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.deltaUp,
+.deltaDown {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.deltaUp {
+  color: var(--color-success);
+  background: rgba(52, 211, 153, 0.12);
+}
+
+.deltaDown {
+  color: var(--color-danger);
+  background: rgba(248, 113, 113, 0.12);
+}
+
+.footer {
+  margin-top: auto;
+  color: var(--color-muted);
+  font-size: 12px;
+  border-top: 1px dashed var(--color-border);
+  padding-top: 8px;
+}
+
+/* Variantes por tono — el componente las concatena con `styles[`tone_${tone}`]` */
+.tone_success {
+  border-left: 3px solid var(--color-success);
+}
+
+.tone_accent {
+  border-left: 3px solid var(--color-accent);
+}
+
+.tone_warning {
+  border-left: 3px solid var(--color-warning);
+}
+
+.tone_danger {
+  border-left: 3px solid var(--color-danger);
+}
