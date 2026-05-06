@@ -1,0 +1,104 @@
+/* RecentTrades.module.css — scope local (CSS Modules). */
+
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  margin-top: 8px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+.badge {
+  font-size: 11px;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.7fr 0.8fr 1fr 0.7fr;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 4px;
+  border-top: 1px dashed var(--color-border);
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
+}
+
+.row:first-child {
+  border-top: none;
+}
+
+.pair {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.side {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  width: fit-content;
+}
+
+.long {
+  color: var(--color-success);
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+
+.short {
+  color: var(--color-danger);
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+}
+
+.size {
+  color: var(--color-muted);
+}
+
+.pnlUp,
+.pnlDown {
+  font-weight: 600;
+  text-align: right;
+}
+
+.pnlUp {
+  color: var(--color-success);
+}
+
+.pnlDown {
+  color: var(--color-danger);
+}
+
+.time {
+  color: var(--color-muted);
+  text-align: right;
+  font-size: 12px;
+}
